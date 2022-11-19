@@ -1,25 +1,32 @@
 <template>
+  <!-- 自定义 TabBar -->
   <div class="tab-bar">
-    <van-tabbar v-model="currentIndex" active-color="#ff9854">
-      <template v-for="(item, index) in dataTabBar" :key="index">
-        <van-tabbar-item :to="item.path">
-          <span>{{item.name}}</span>
-          <template #icon>
-            <img v-if="currentIndex !== index" :src="getAssetsImage(item.img)" alt="" />
-            <img v-else :src="getAssetsImage(item.activeImg)" alt="" />
-          </template>
-        </van-tabbar-item>
-      </template>
-    </van-tabbar>
+    <template v-for="(item, index) in dataTabBar" :key="index">
+      <div
+        class="tab-bar-item"
+        :class="{ active: currentIndex === index }"
+        @click="itemClick(index, item.path)"
+      >
+        <img v-if="currentIndex !== index" :src="getAssetsImage(item.img)" alt="" />
+        <img v-else :src="getAssetsImage(item.activeImg)" alt="" />
+        <span :to="item.path" class="text">{{ item.name }}</span>
+      </div>
+    </template>
   </div>
 </template>
 
 <script setup>
 import dataTabBar from "@/assets/data/tab-bar";
+import router from "@/router";
 import { getAssetsImage } from "@/utils/getAssets";
 import { ref } from "vue";
 
 const currentIndex = ref(0)
+
+const itemClick = (index, path) => {
+    currentIndex.value = index;
+    router.push(path)
+}
 
 </script>
 
