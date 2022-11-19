@@ -11,19 +11,35 @@ const router = createRouter({
         },
         {
             path: "/home",
-            component: () => import("@/views/home/Home.vue")
+            component: () => import("@/views/home/Home.vue"),
+            meta: {
+                showTabBar: true
+            }
         },
         {
             path: "/message",
-            component: () => import("@/views/message/Message.vue")
+            component: () => import("@/views/message/Message.vue"),
+            meta: {
+                showTabBar: true
+            }
         },
         {
             path: "/order",
-            component: () => import("@/views/order/Order.vue")
+            component: () => import("@/views/order/Order.vue"),
+            meta: {
+                showTabBar: true
+            }
         },
         {
             path: "/favor",
-            component: () => import("@/views/favor/Favor.vue")
+            component: () => import("@/views/favor/Favor.vue"),
+            meta: {
+                showTabBar: true
+            }
+        },
+        {
+            path: "/city",
+            component: () => import("@/views/city/City.vue")
         }
     ]
 })

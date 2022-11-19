@@ -17,11 +17,13 @@
 
 <script setup>
 import dataTabBar from "@/assets/data/tab-bar";
-import router from "@/router";
+import {useRouter} from "vue-router";
 import { getAssetsImage } from "@/utils/getAssets";
 import { ref } from "vue";
 
 const currentIndex = ref(0)
+
+const router = useRouter()
 
 const itemClick = (index, path) => {
     currentIndex.value = index;
