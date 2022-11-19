@@ -22,7 +22,7 @@ const dataTabBar = [
         name: '信息',
         img: 'img/tabbar/tab_message.png',
         path: '/message',
-        activeImg: 'img/tabbar/tab_message_active.png'
+        activeImg: 'img/tabbar/tab_message.png'
     }
 ]
 
