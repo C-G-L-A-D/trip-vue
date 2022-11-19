@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import pinia from './stores'
 
 // 引入样式重置库
 import "normalize.css"
