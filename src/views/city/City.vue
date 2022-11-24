@@ -11,8 +11,9 @@
 
     <!-- 区域tab标签 -->
     <van-tabs v-model:active="tabActive" color="#ff9854" line-height="2">
-      <van-tab title="国内·港澳台"></van-tab>
-      <van-tab title="海外"></van-tab>
+      <template v-for="(value, key) in allCities" :key="key">
+        <van-tab :title="value.title"></van-tab>
+      </template>
     </van-tabs>
   </div>
 </template>
@@ -20,6 +21,8 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { ref } from "vue";
+import { getCityAll } from '@/services/modules/city'
+import useCityStore from "@/stores/modules/city";
 
 const router = useRouter()
 
@@ -30,11 +33,21 @@ const onSearch = () => {
 }
 
 const onCancel = () => {
+  // 返回上一级
   router.back()
 }
 
 // tab标签
 const tabActive = ref(0)
+
+
+// 所有城市数据
+
+// 从状态管理模块中获取所有城市数据，避免在此写太多网络请求代码
+const cityStore = useCityStore()
+cityStore.fetchAllCitiesData()
+const { allCities } = cityStore
+
 
 </script>
 

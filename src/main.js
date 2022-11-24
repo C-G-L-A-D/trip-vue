@@ -9,4 +9,4 @@ import "normalize.css"
 import "./assets/css/index.css"
 
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).use(pinia).mount('#app')
