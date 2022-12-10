@@ -12,6 +12,8 @@
         <HomeDateSelector />
         <!-- 其他选项 -->
         <HomeOtherSelectors />
+        <!-- 热门建议 -->
+        <HomeHotSugguests :hot-suggests="hotSuggests" />
     </div>
 </template>
 
@@ -20,13 +22,14 @@ import HomeNavBar from './components/HomeNavBar.vue'
 import HomeLocationSearch from './components/HomeLocationSearch.vue'
 import HomeDateSelector from './components/HomeDateSelector.vue'
 import HomeOtherSelectors from './components/HomeOtherSelectors.vue'
+import HomeHotSugguests from './components/HomeHotSugguests.vue'
 import useHomeStore from '@/stores/modules/home';
 import { storeToRefs } from 'pinia';
 
 // 获取热门建议的数据
 const homeStore = useHomeStore()
 homeStore.fetchHotSuggestsData()
-const { hotSuggests} = storeToRefs(homeStore)
+const { hotSuggests } = storeToRefs(homeStore)
 console.log(hotSuggests);
 </script>
 
