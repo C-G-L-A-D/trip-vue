@@ -4,7 +4,7 @@ import { getCityAll } from '@/services/modules/city'
 const useCityStore = defineStore("city", {
     state: () => ({
         allCities: {},
-        currentCity: { 
+        currentCity: {
             cityName: '北京',
             cityId: 48
         }

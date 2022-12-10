@@ -37,7 +37,6 @@ import { storeToRefs } from "pinia";
 import CityGroup from './components/city-group.vue'
 
 const router = useRouter();
-console.log('1');
 // 搜索功能
 const searchValue = ref("");
 const onSearch = () => {
@@ -58,7 +57,6 @@ const tabActive = ref(0);
 const cityStore = useCityStore()
 cityStore.fetchAllCitiesData()
 const { allCities } = storeToRefs(cityStore)
-console.log(allCities);
 
 // 获取选中标签后的数据，直接赋值就不是响应式，所以可以通过计算属性当依赖值发生改变时改变
 const currentGroup = computed(() => allCities.value[tabActive.value])

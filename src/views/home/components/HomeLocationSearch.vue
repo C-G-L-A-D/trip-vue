@@ -1,5 +1,5 @@
 <template>
-  <div class="home-location-search">
+  <div class="home-location-search bottom-grey-line">
     <div class="city" @click="cityClick">{{currentCity.cityName}}</div>
     <div class="position" @click="positionClick">
       <span class="text">我的位置</span>
